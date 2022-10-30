@@ -14,8 +14,7 @@ import java.util.List;
 public class InventoryService {
     private final InventoryRepository inventoryRepository;
 
-    public List<InventoryResponse> isInStock(List<String> skuCode) {
-
+    public List<InventoryResponse> isInStock(List<String> skuCode){
         return inventoryRepository.findBySkuCodeIn(skuCode).stream()
                 .map(inventory ->
                     InventoryResponse.builder()
@@ -24,7 +23,7 @@ public class InventoryService {
                             .build()).toList();
     }
 
-    public void insertInventory(InventoryRequest inventoryRequest) {
+    public void insertInventory(InventoryRequest inventoryRequest){
         Inventory inventory = new Inventory();
         inventory.setSkuCode(inventoryRequest.getSkuCode());
         inventory.setQuantity(inventoryRequest.getQuantity());

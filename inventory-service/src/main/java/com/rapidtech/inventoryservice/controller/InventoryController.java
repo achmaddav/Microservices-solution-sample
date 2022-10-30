@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import javax.persistence.GeneratedValue;
 import java.util.List;
 
 @RestController
@@ -17,13 +18,13 @@ public class InventoryController {
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    public List<InventoryResponse> isInStock(@RequestParam List<String> skuCode) {
+    public List<InventoryResponse> isInStock(@RequestParam List<String> skuCode){
         return inventoryService.isInStock(skuCode);
     }
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public String insertInventory(@RequestBody InventoryRequest inventoryRequest) {
+    public String insertInventory(@RequestBody InventoryRequest inventoryRequest){
         inventoryService.insertInventory(inventoryRequest);
         return "Data inventory added";
     }

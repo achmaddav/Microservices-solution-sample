@@ -1,5 +1,6 @@
 package com.rapidtech.orderservice.dto;
 
+import com.rapidtech.orderservice.model.OrderLineItems;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

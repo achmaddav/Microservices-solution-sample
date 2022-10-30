@@ -1,24 +1,21 @@
 package com.rapidtech.orderservice.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "t_order")
+@Table(name = "t_orders")
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 public class Order {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String orderNumber;
 
-    @OneToMany(cascade = CascadeType.ALL )
+    @OneToMany(cascade = CascadeType.ALL)
     private List<OrderLineItems> orderLineItemsList;
 }
