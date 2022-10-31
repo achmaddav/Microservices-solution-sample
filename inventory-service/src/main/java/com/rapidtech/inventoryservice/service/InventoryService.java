@@ -21,7 +21,7 @@ public class InventoryService {
     public List<InventoryResponse> isInStock(List<String> skuCode){
         log.info("Mulai menunggu");
         //Thread.sleep(10000);
-        log.info("Selesai menunggu");
+        //log.info("Selesai menunggu");
         return inventoryRepository.findBySkuCodeIn(skuCode).stream()
                 .map(inventory ->
                     InventoryResponse.builder()
